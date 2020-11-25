@@ -1,0 +1,115 @@
+\documentclass[12pt]{report}
+\usepackage{style_ifri}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usepackage{shorttoc}
+\usepackage{abstract,lipsum}
+\usepackage{indentfirst}
+\usepackage{wasysym}
+
+\titleformat{\section}[wrap]
+{\normalfont\bfseries}
+{\thesection.}{0.5em}{}
+
+\typeMemoire{Master en Informatique}
+%\optionFormation{Informatique Générale}
+\etudiant{M. Rodolpho Chabi A. \textbf{BABATOUNDE}}{chabibabatounde@gmail.com}
+
+\titreDuMemoire{Conception d'un système d'information de gestion du parc automobile béninois basé sur la lecture automatique des plaques
+minéralogiques}
+
+\anneeScolaire{2018-2019}
+
+
+% Plusieurs encadrants décommenté la ligne suivante
+\encadrants{\textit{Dr.} Ratheil V. \textbf{HOUDJI}}
+
+% Un seul encadrant décommenté la ligne suivante
+% \encadrants{Prof Eugène C. \textbf{EZIN}}
+
+\renewenvironment{abstract}
+{\begin{quote}
+ \noindent \rule{\linewidth}{1pt}\par{\bfseries \abstractname.}}
+ {\medskip \noindent \newline \rule{\linewidth}{1pt}
+\end{quote}
+}
+
+\hypersetup{
+	pdftitle={MEMOIRE MASTER INFORMATIQUE - RODOLPHO BABATOUNDE},
+	pdfauthor={Rodolpho Chabi BABATOUNDE, chabibabatounde@gmail.com},
+	pdfsubject={Conception d'un système d’information de gestion du parc automobile béninois basé sur la lecture automatique des plaques
+minéralogiques},
+	pdfkeywords={Systeme d'information, OCR, OpenCV, TensorFlow, Machine Learning, LAPI, Détection Immatriculation} 
+}
+
+\setcounter{tocdepth}{2}
+% \setcounter{secnumdepth}{2}
+%\loadglsentries[\newacronym]{glossaire/glossaire}
+
+\begin{document}
+%Décommenter ou commenter pour afficher ou non le logo en filigrane sur la 1ère page
+% \AddToShipoutPicture*{\BackgroundPic}
+\begin{onehalfspace}
+
+\pageDeGarde
+
+\selectlanguage{french}
+
+% Sommaire
+\pagenumbering{roman}
+{
+% Sommaire
+% \dominitoc
+\shorttableofcontents{Sommaire}{0}
+\addcontentsline{toc}{chapter}{Sommaire}   %insertion ligne "sommaire" dans la table des matières
+% \tableofcontents
+% Dedicace
+\input{glossaire/glossaire}
+\include{dedicace/dedicace}
+% Remerciements
+\include{remerciements/remerciements}
+\selectlanguage{french}
+% Glossaire
+\selectlanguage{french}
+\glsaddall
+\printglossaries\addcontentsline{toc}{chapter}{Liste des sigles et abréviations}
+%\printglossary[type=\acronymtype , title={Liste des acronymes}, toctitle={Liste des acronymes}]
+\clearpage
+}
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+% Résumé
+\resume
+\input{resume/resume}
+\selectlanguage{french}
+%introduction
+\lhead[]{} \rhead[]{} \chead[]{}
+%package auto-pst-pdf Error:"shell escape" (or "write18") is not enabled : auto-pst-pdf will not work
+\fancyhead[L]{\tiny \leftmark}
+\fancyhead[R]{\scriptsize \rightmark}
+\fancyfoot[C]{\thepage}
+
+% Introduction generale
+\input{introduction/introduction}
+\input{1-etat_art/etat_art}
+\input{2-materielMethode/materielMethode}
+\input{3-solution/solution}
+\lhead[]{} \rhead[]{} \chead[]{}
+%\conclusion
+%\input{conclusion/conclusion}
+% Bibliographie
+%\include{bibliographie/bibliographie}
+% Annexe
+%\appendix
+%\include{annexe/annexe}
+% Table des matieres
+\clearpage
+\pagenumbering{gobble}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\addcontentsline{toc}{chapter}{Table des matières}
+\end{onehalfspace}
+\end{document}
+
